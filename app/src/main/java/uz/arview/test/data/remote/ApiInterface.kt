@@ -12,5 +12,6 @@ interface ApiInterface {
         @Header("Client-ID") clientId: String,
         @Header("Accept") accept: String,
         @Query("limit") limit: Int,
-        @Query("offset") offset: Int) : Observable<TopGameResponse>
+        @Query("offset") offset: Int
+    ): Observable<TopGameResponse>
 }

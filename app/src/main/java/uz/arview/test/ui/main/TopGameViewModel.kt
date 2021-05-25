@@ -13,11 +13,13 @@ import uz.arview.test.data.remote.ApiInterface
 import uz.arview.test.data.remote.C
 
 class TopGameViewModel(private val dao: TopGameDao, private val api: ApiInterface) : ViewModel() {
-    private var mutableTopGameListLocal: MutableLiveData<Resource<List<GameDbModel>>> = MutableLiveData()
+    private var mutableTopGameListLocal: MutableLiveData<Resource<List<GameDbModel>>> =
+        MutableLiveData()
     val topGameListLocal: LiveData<Resource<List<GameDbModel>>>
-    get() = mutableTopGameListLocal
+        get() = mutableTopGameListLocal
 
-    private var mutableTopGameListNetwork: MutableLiveData<Resource<List<GameDbModel>>> = MutableLiveData()
+    private var mutableTopGameListNetwork: MutableLiveData<Resource<List<GameDbModel>>> =
+        MutableLiveData()
     val topGameListNetwork: LiveData<Resource<List<GameDbModel>>>
         get() = mutableTopGameListNetwork
 
@@ -60,8 +62,8 @@ class TopGameViewModel(private val dao: TopGameDao, private val api: ApiInterfac
     fun insertToDatabase(games: List<GameDbModel>) {
         compositeDisposable.add(
             dao.insertGames(games).subscribeOn(Schedulers.newThread())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe()
         )
     }
 }

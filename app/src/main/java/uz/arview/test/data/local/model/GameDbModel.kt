@@ -22,7 +22,7 @@ data class GameDbModel(
     val locale: String
 ) {
     companion object {
-        fun convertToDbModel(game: Game) : GameDbModel {
+        fun convertToDbModel(game: Game): GameDbModel {
             return GameDbModel(
                 id = game.id,
                 name = game.name,

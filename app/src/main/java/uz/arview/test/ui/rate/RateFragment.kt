@@ -9,9 +9,9 @@ import uz.arview.test.core.onClick
 import uz.arview.test.databinding.FragmentRateBinding
 
 class RateFragment : Fragment(R.layout.fragment_rate) {
-    
+
     private lateinit var binding: FragmentRateBinding
-    
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentRateBinding.bind(view)

@@ -18,12 +18,14 @@ import java.util.concurrent.TimeUnit
 private const val BASE_URL: String = "https://api.twitch.tv/kraken/"
 
 val localDataModule = module {
-    single {  Room
-        .databaseBuilder(androidContext(),
-            GameDatabase::class.java,
-            "base.db"
-        )
-        .build()
+    single {
+        Room
+            .databaseBuilder(
+                androidContext(),
+                GameDatabase::class.java,
+                "base.db"
+            )
+            .build()
     }
     single { get<GameDatabase>().topGameDao() }
 }

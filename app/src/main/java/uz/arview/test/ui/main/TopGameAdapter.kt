@@ -11,17 +11,18 @@ import uz.arview.test.databinding.ItemTopGameBinding
 class TopGameAdapter : RecyclerView.Adapter<TopGameAdapter.TopGameViewHolder>() {
 
     var games: MutableList<GameDbModel> = mutableListOf()
-    set(value) {
-        field = value
-        notifyDataSetChanged()
-    }
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     fun addGames(list: List<GameDbModel>) {
         games.addAll(list)
         notifyDataSetChanged()
     }
 
-    inner class TopGameViewHolder(private val binding: ItemTopGameBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class TopGameViewHolder(private val binding: ItemTopGameBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun populateModel(game: GameDbModel) {
             binding.apply {
                 Glide.with(binding.root.context).load(game.boxLarge).centerCrop().into(box)

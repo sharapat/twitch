@@ -36,20 +36,21 @@ class TopGameListFragment : Fragment(R.layout.fragment_top_game) {
         navController = Navigation.findNavController(view)
         binding.apply {
             topGames.adapter = adapter
-            val layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
+            val layoutManager =
+                LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
             topGames.layoutManager = layoutManager
-            topGames.addOnScrollListener(object: RecyclerView.OnScrollListener() {
+            topGames.addOnScrollListener(object : RecyclerView.OnScrollListener() {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     super.onScrolled(recyclerView, dx, dy)
                     if (!isLoading) {
-                        if (layoutManager.findLastCompletelyVisibleItemPosition() == adapter.itemCount-1) {
+                        if (layoutManager.findLastCompletelyVisibleItemPosition() == adapter.itemCount - 1) {
                             loadData(limit, offset)
                         }
                     }
                 }
             })
             viewModel.topGameListLocal.observe(viewLifecycleOwner, {
-                when(it.status) {
+                when (it.status) {
                     ResourceState.LOADING -> progressBar.visibility(true)
                     ResourceState.SUCCESS -> {
                         progressBar.visibility(false)
@@ -62,7 +63,7 @@ class TopGameListFragment : Fragment(R.layout.fragment_top_game) {
                 }
             })
             viewModel.topGameListNetwork.observe(viewLifecycleOwner, {
-                when(it.status) {
+                when (it.status) {
                     ResourceState.LOADING -> progressBar.visibility(true)
                     ResourceState.SUCCESS -> {
                         viewModel.insertToDatabase(it.data!!)
