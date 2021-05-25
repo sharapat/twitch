@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/topGameListFragment">
+
+    <fragment
+        android:id="@+id/topGameListFragment"
+        android:name="uz.arview.test.ui.main.TopGameListFragment"
+        android:label="TopGameListFragment"
+        tools:layout="@layout/fragment_top_game">
+        <action
+            android:id="@+id/action_topGameListFragment_to_rateFragment"
+            app:destination="@id/rateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rateFragment"
+        android:name="uz.arview.test.ui.rate.RateFragment"
+        android:label="RateFragment"
+        tools:layout="@layout/fragment_rate"/>
+</navigation>

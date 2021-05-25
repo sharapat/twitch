@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Arview</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="send_feedback">Send feedback</string>
+</resources>
